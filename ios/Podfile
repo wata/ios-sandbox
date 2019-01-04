@@ -1,0 +1,22 @@
+platform :ios, 11.0
+
+use_frameworks!
+
+pod 'Firebase/Core'
+pod 'Firebase/Storage'
+pod 'Firebase/Firestore'
+pod 'Firebase/Performance'
+pod 'Firebase/Auth'
+pod 'Firebase/Messaging'
+pod 'FirebaseUI/Auth'
+pod 'FirebaseUI/Phone'
+pod 'Fabric'
+pod 'Crashlytics'
+
+target 'Sandbox' do
+
+end
+
+target 'SandboxTests' do
+    inherit! :search_paths
+end
