@@ -41,7 +41,7 @@ public struct Logger {
                       functionName: CustomStringConvertible = #function,
                       fileName: CustomStringConvertible = #file,
                       lineNumber: Int = #line) {
-        doLog(message, logType: .debug, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+        doLog(message(), logType: .debug, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
     /// Log something at the Info log level for trace info.
@@ -53,8 +53,8 @@ public struct Logger {
                      functionName: CustomStringConvertible = #function,
                      fileName: CustomStringConvertible = #file,
                      lineNumber: Int = #line) {
-        doLog(message, logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-        doCLSLog(message, logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+        doLog(message(), logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+        doCLSLog(message(), logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
     /// Log something at the Error log level for handleable error.
@@ -66,8 +66,8 @@ public struct Logger {
                       functionName: CustomStringConvertible = #function,
                       fileName: CustomStringConvertible = #file,
                       lineNumber: Int = #line) {
-        doLog(message, logType: .error, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-        doCLSLog(message, logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+        doLog(message(), logType: .error, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+        doCLSLog(message(), logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
     /// Log something at the Fault log level for unexpected error.
@@ -79,16 +79,16 @@ public struct Logger {
                       functionName: CustomStringConvertible = #function,
                       fileName: CustomStringConvertible = #file,
                       lineNumber: Int = #line) {
-        doLog(message, logType: .fault, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-        doCLSRecordError(message, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
-        doAssertionFailure(message)
+        doLog(message(), logType: .fault, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+        doCLSRecordError(message(), functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+        doAssertionFailure(message())
     }
 
     public func `default`(_ message: @autoclosure () -> Any?,
                           functionName: CustomStringConvertible = #function,
                           fileName: CustomStringConvertible = #file,
                           lineNumber: Int = #line) {
-        doLog(message, logType: .default, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+        doLog(message(), logType: .default, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
     fileprivate func doLog(_ message: @autoclosure () -> Any?,
@@ -99,7 +99,7 @@ public struct Logger {
         let staticSelf = type(of: self)
         let log = staticSelf.log
         guard log.isEnabled(type: logType) else { return }
-        guard let output = staticSelf.buildOutput(message,
+        guard let output = staticSelf.buildOutput(message(),
                                                   logType: logType,
                                                   functionName: functionName,
                                                   fileName: fileName,
@@ -113,7 +113,7 @@ public struct Logger {
                               fileName: CustomStringConvertible,
                               lineNumber: Int) {
         let staticSelf = type(of: self)
-        guard let output = staticSelf.buildOutput(message,
+        guard let output = staticSelf.buildOutput(message(),
                                                   logType: logType,
                                                   functionName: functionName,
                                                   fileName: fileName,
@@ -126,7 +126,7 @@ public struct Logger {
                                       fileName: CustomStringConvertible,
                                       lineNumber: Int) {
         let staticSelf = type(of: self)
-        guard let error = staticSelf.buildError(message,
+        guard let error = staticSelf.buildError(message(),
                                                 functionName: functionName,
                                                 fileName: fileName,
                                                 lineNumber: lineNumber) else { return }
