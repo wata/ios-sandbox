@@ -17,6 +17,7 @@
 		5ABC21C5218B1D4D00A719C7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC21C4218B1D4D00A719C7 /* Logger.swift */; };
 		5ABC21C7218B1E5900A719C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC21C6218B1E5900A719C7 /* Constants.swift */; };
 		5ABC21CC2193205000A719C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ABC21CB2193204D00A719C7 /* GoogleService-Info.plist */; };
+		5AD936D422E4A36200AB691F /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD936D322E4A36200AB691F /* RecordButton.swift */; };
 		877ECA89C176458C853DD56B /* Pods_SandboxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5FA77B7C5E740542569244 /* Pods_SandboxTests.framework */; };
 		A79070EB8BA25BE3B1D5A866 /* Pods_Sandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E022FC30EF2534918A0602F /* Pods_Sandbox.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		5ABC21C4218B1D4D00A719C7 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5ABC21C6218B1E5900A719C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5ABC21CB2193204D00A719C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5AD936D322E4A36200AB691F /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		796C7A50FE3A5871A0009F03 /* Pods-SandboxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SandboxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SandboxTests/Pods-SandboxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E022FC30EF2534918A0602F /* Pods_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF27D893427571A689AAD3FD /* Pods-Sandbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sandbox/Pods-Sandbox.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				5ABC21A4218B17B000A719C7 /* AppDelegate.swift */,
 				5ABC21A6218B17B000A719C7 /* ViewController.swift */,
+				5AD936D322E4A36200AB691F /* RecordButton.swift */,
 				5ABC21A8218B17B000A719C7 /* Main.storyboard */,
 				5ABC21AB218B17B200A719C7 /* Assets.xcassets */,
 				5ABC21AD218B17B200A719C7 /* LaunchScreen.storyboard */,
@@ -296,7 +299,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -350,6 +353,7 @@
 			files = (
 				5ABC21A7218B17B000A719C7 /* ViewController.swift in Sources */,
 				5ABC21C5218B1D4D00A719C7 /* Logger.swift in Sources */,
+				5AD936D422E4A36200AB691F /* RecordButton.swift in Sources */,
 				5A71F68C2214F131005FA607 /* R.generated.swift in Sources */,
 				5ABC21A5218B17B000A719C7 /* AppDelegate.swift in Sources */,
 				5ABC21C7218B1E5900A719C7 /* Constants.swift in Sources */,

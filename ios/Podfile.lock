@@ -159,7 +159,9 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PermissionAccess (0.0.1)
   - Protobuf (3.9.0)
+  - Pulsator (0.6.0)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
@@ -175,6 +177,8 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI/Auth
   - FirebaseUI/Phone
+  - PermissionAccess (from `https://github.com/wata/PermissionAccess.git`)
+  - Pulsator
   - R.swift
 
 SPEC REPOS:
@@ -205,8 +209,18 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - Pulsator
     - R.swift
     - R.swift.Library
+
+EXTERNAL SOURCES:
+  PermissionAccess:
+    :git: https://github.com/wata/PermissionAccess.git
+
+CHECKOUT OPTIONS:
+  PermissionAccess:
+    :commit: 94cc942c3f3ce045bdde089d2469f819cbd29252
+    :git: https://github.com/wata/PermissionAccess.git
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
@@ -234,10 +248,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PermissionAccess: 270a1f81266a07c1f7e56529ef2dbd297737f2c8
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  Pulsator: eb5a9f9be4bdcbd19903984c65deca6aabe50a17
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
 
-PODFILE CHECKSUM: 7115135a7838bb3dbf0aa04aea5bca5ac69cf2eb
+PODFILE CHECKSUM: f0dfa48e513c69dcca35744049c880f5d2a588fb
 
 COCOAPODS: 1.7.5
