@@ -11,7 +11,6 @@ import os.log
 import Crashlytics
 
 extension OSLogType: CustomStringConvertible {
-
     public var description: String {
         switch self {
         case OSLogType.debug: return "🔹🔹🔹"
@@ -27,7 +26,6 @@ extension OSLogType: CustomStringConvertible {
 // https://gist.github.com/yoichitgy/8806a7da3a52d8e6f5207e6a1a11b5a8
 // https://developer.apple.com/reference/os/logging
 public struct Logger {
-
     private static let log = OSLog(subsystem: Constants.AppInfo.bundleIdentifier, category: "default")
 
     fileprivate init() {}
@@ -37,10 +35,10 @@ public struct Logger {
     /// ❌ CLSLogv
     /// ❌ recordError
     /// ❌ assertionFailure
-    public func debug(_ message: @autoclosure () -> Any?,
-                      functionName: CustomStringConvertible = #function,
-                      fileName: CustomStringConvertible = #file,
-                      lineNumber: Int = #line) {
+    func debug(_ message: @autoclosure () -> Any?,
+               functionName: CustomStringConvertible = #function,
+               fileName: CustomStringConvertible = #file,
+               lineNumber: Int = #line) {
         doLog(message(), logType: .debug, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
@@ -49,10 +47,10 @@ public struct Logger {
     /// ✅ CLSLogv
     /// ❌ recordError
     /// ❌ assertionFailure
-    public func info(_ message: @autoclosure () -> Any?,
-                     functionName: CustomStringConvertible = #function,
-                     fileName: CustomStringConvertible = #file,
-                     lineNumber: Int = #line) {
+    func info(_ message: @autoclosure () -> Any?,
+              functionName: CustomStringConvertible = #function,
+              fileName: CustomStringConvertible = #file,
+              lineNumber: Int = #line) {
         doLog(message(), logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         doCLSLog(message(), logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
@@ -62,10 +60,10 @@ public struct Logger {
     /// ✅ CLSLogv
     /// ❌ recordError
     /// ❌ assertionFailure
-    public func error(_ message: @autoclosure () -> Any?,
-                      functionName: CustomStringConvertible = #function,
-                      fileName: CustomStringConvertible = #file,
-                      lineNumber: Int = #line) {
+    func error(_ message: @autoclosure () -> Any?,
+               functionName: CustomStringConvertible = #function,
+               fileName: CustomStringConvertible = #file,
+               lineNumber: Int = #line) {
         doLog(message(), logType: .error, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         doCLSLog(message(), logType: .info, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
@@ -75,19 +73,19 @@ public struct Logger {
     /// ❌ CLSLogv
     /// ✅ recordError
     /// ✅ assertionFailure
-    public func fault(_ message: @autoclosure () -> Any?,
-                      functionName: CustomStringConvertible = #function,
-                      fileName: CustomStringConvertible = #file,
-                      lineNumber: Int = #line) {
+    func fault(_ message: @autoclosure () -> Any?,
+               functionName: CustomStringConvertible = #function,
+               fileName: CustomStringConvertible = #file,
+               lineNumber: Int = #line) {
         doLog(message(), logType: .fault, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         doCLSRecordError(message(), functionName: functionName, fileName: fileName, lineNumber: lineNumber)
         doAssertionFailure(message())
     }
 
-    public func `default`(_ message: @autoclosure () -> Any?,
-                          functionName: CustomStringConvertible = #function,
-                          fileName: CustomStringConvertible = #file,
-                          lineNumber: Int = #line) {
+    func `default`(_ message: @autoclosure () -> Any?,
+                   functionName: CustomStringConvertible = #function,
+                   fileName: CustomStringConvertible = #file,
+                   lineNumber: Int = #line) {
         doLog(message(), logType: .default, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
     }
 
@@ -175,4 +173,4 @@ fileprivate extension DispatchQueue {
     }
 }
 
-public let log = Logger()
+let log = Logger()
